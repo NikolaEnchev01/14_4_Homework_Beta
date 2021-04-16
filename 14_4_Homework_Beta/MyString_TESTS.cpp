@@ -14,16 +14,16 @@ TEST_CASE("MyString : at ") {
 	SECTION("Empty string") {
 		MyString str{};
 
-		bool expeptionCought = false;
+		bool exeptionCought = false;
 
 		try {
 			str.at(0);
 		}
 		catch (std::out_of_range&) {
-			expeptionCought = true;
+			exeptionCought = true;
 		}
 
-		REQUIRE(expeptionCought == true);
+		REQUIRE(exeptionCought == true);
 	}
 	SECTION("Normal String") {
 		MyString str{ "abc 1a2z 1!@ 42" };
@@ -319,8 +319,8 @@ TEST_CASE("MyString : opperator == ") {
 }
 TEST_CASE("MyString : opperator < ") {
 	SECTION("Normal string") {
-		MyString str1{ "abcB" };
-		MyString str2{ "abcA" };
+		MyString str1{ "abcA" };
+		MyString str2{ "abcB" };
 
 		bool success = (str1 < str2);
 		REQUIRE(success);

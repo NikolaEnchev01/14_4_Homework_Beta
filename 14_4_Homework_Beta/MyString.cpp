@@ -147,7 +147,7 @@ void MyString::push_back(char c)
 {
 	if (used == capacity)
 	{
-		size_t newSize = ((capacity == 0) ? 1 : capacity *2 );
+		size_t newSize = ((capacity == 0) ? 2 : capacity *2 );
 		
 
 		char* newStr = new char[newSize];
@@ -156,11 +156,13 @@ void MyString::push_back(char c)
 		{
 			newStr[i] = str[i];
 		}
+		newStr[newSize - 1] = '\0';
 
-		delete str;
+		delete[] str;
 		str = newStr;
 		newStr = nullptr;
 	}
+
 	this->used++;
 	this->str[used-1] = c;	
 }
@@ -176,7 +178,7 @@ MyString& MyString::operator+=(char c)
 {
 	if (used == capacity)
 	{
-		size_t newSize = ((capacity == 0) ? 1 : (capacity * 2));
+		size_t newSize = ((capacity == 0) ? 2 : (capacity * 2));
 
 		char* newStr = new char[newSize];
 
@@ -184,8 +186,9 @@ MyString& MyString::operator+=(char c)
 		{
 			newStr[i] = str[i];
 		}
+		newStr[newSize - 1] = '\0';
 
-		delete str;
+		delete[] str;
 		str = newStr;
 		newStr = nullptr;
 	}
@@ -214,7 +217,8 @@ MyString& MyString::operator+=(const MyString& rhs)
 		index++;
 	}
 	newStr[newSize] = '\0';
-	delete str;
+
+	delete[] str;
 	str = newStr;
 	newStr = nullptr;
 
@@ -239,30 +243,42 @@ MyString MyString::operator+(char c) const
 	newStr[newSize-2] = c;
 	newStr[newSize - 1] = '\0';
 
-	MyString concedString{ newStr };
+	MyString concatenatedStr{ newStr };
 
 	delete[] newStr; 
 	newStr = nullptr;
 	
-	return concedString;
+	return concatenatedStr;
 }
 
 MyString MyString::operator+(const MyString& rhs) const
 {
-	MyString concedStr{};
+	MyString concatenatedStr{};
 
-	concedStr += str;
-	concedStr += rhs;
+	concatenatedStr += str;
+	concatenatedStr += rhs;
 
-	return concedStr;
+	return concatenatedStr;
 }
 
 const char* MyString::c_str() const
 {
-	char* newStr;
-	createDynCopy(newStr, str);
+	if (str)
+	{
+		char* newStr = new char[used+1];
 
-	return newStr;
+		for (size_t i = 0; i < used; i++)
+		{
+			newStr[i] = str[i];
+		}
+		newStr[used] = '\0';
+
+		return newStr;
+	}
+	else
+	{
+		return nullptr;
+	}
 }
 
 bool MyString::operator==(const MyString& rhs) const
@@ -285,10 +301,10 @@ bool MyString::operator<(const MyString& rhs) const
 
 	for (size_t i = 0; i < index; i++)
 	{
-		if (str[i] < rhs.str[i])
+		if (str[i] > rhs.str[i])
 			return false;
 
-		if (str[i] > rhs.str[i])
+		if (str[i] < rhs.str[i])
 			return true;
 	}
 
