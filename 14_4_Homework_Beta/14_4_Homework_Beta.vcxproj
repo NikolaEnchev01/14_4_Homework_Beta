@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="14_4_Homework_Beta.cpp" />
     <ClCompile Include="Garage.cpp" />
+    <ClCompile Include="Garage_TESTS.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="MyString_TESTS.cpp" />
     <ClCompile Include="Vehicle _TESTS.cpp" />

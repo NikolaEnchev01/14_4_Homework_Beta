@@ -241,7 +241,7 @@ MyString MyString::operator+(char c) const
 
 	MyString concedString{ newStr };
 
-	delete newStr;
+	delete[] newStr; 
 	newStr = nullptr;
 	
 	return concedString;
