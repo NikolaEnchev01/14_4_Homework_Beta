@@ -22,7 +22,7 @@ void createDynCopy(char*& destination, const char* source)
 		destination = nullptr;
 	}
 }
-MyString::MyString() 
+MyString::MyString()
 {
 	str = new char[1];
 	str[0] = '\0';
@@ -47,7 +47,7 @@ MyString::MyString(const char* source)
 
 MyString::MyString(const MyString& source)
 {
-	createDynCopy(this->str,source.str);
+	createDynCopy(this->str, source.str);
 	this->capacity = source.capacity;
 	this->used = source.used;
 }
@@ -64,11 +64,11 @@ MyString& MyString::operator=(const MyString& rhs)
 
 char& MyString::at(size_t pos)
 {
-		if (pos >= 0 && pos < used)
-		{
+	if (pos >= 0 && pos < used)
+	{
 
-			return this->str[pos];
-		}
+		return this->str[pos];
+	}
 	throw std::out_of_range("Something is out of range!");
 }
 
@@ -109,14 +109,14 @@ const char& MyString::front() const
 
 char& MyString::back()
 {
-	
+
 	assert(used > 0);
 	return str[used - 1];
 }
 
 const char& MyString::back() const
 {
-	
+
 	assert(used > 0);
 	return str[used - 1];
 }
@@ -147,8 +147,8 @@ void MyString::push_back(char c)
 {
 	if (used == capacity)
 	{
-		size_t newSize = ((capacity == 0) ? 2 : capacity *2 );
-		
+		size_t newSize = ((capacity == 0) ? 2 : capacity * 2);
+
 
 		char* newStr = new char[newSize];
 
@@ -164,7 +164,7 @@ void MyString::push_back(char c)
 	}
 
 	this->used++;
-	this->str[used-1] = c;	
+	this->str[used - 1] = c;
 }
 
 void MyString::pop_back()
@@ -200,7 +200,7 @@ MyString& MyString::operator+=(char c)
 
 MyString& MyString::operator+=(const MyString& rhs)
 {
-	
+
 	size_t newSize = 0;
 	newSize = used + rhs.size();
 
@@ -226,7 +226,7 @@ MyString& MyString::operator+=(const MyString& rhs)
 	this->capacity = newSize;
 
 	return *this;
-	
+
 
 }
 
@@ -240,14 +240,14 @@ MyString MyString::operator+(char c) const
 		newStr[i] = str[i];
 	}
 
-	newStr[newSize-2] = c;
+	newStr[newSize - 2] = c;
 	newStr[newSize - 1] = '\0';
 
 	MyString concatenatedStr{ newStr };
 
-	delete[] newStr; 
+	delete[] newStr;
 	newStr = nullptr;
-	
+
 	return concatenatedStr;
 }
 
@@ -265,7 +265,7 @@ const char* MyString::c_str() const
 {
 	if (str)
 	{
-		char* newStr = new char[used+1];
+		char* newStr = new char[used + 1];
 
 		for (size_t i = 0; i < used; i++)
 		{

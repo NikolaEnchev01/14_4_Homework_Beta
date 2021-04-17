@@ -20,7 +20,7 @@ public:
 	bool empty() const;
 	size_t size() const;
 	void clear();
-	 const Vehicle* find(const char* registration) const;
+	const Vehicle* find(const char* registration) const;
 
 private:
 	size_t capacity;

@@ -1,3 +1,6 @@
+
+// to use the test coment out main_4.cpp
+
 #define CATCH_CONFIG_MAIN
 
 #include "MyString.h"
@@ -5,12 +8,7 @@
 #include <iostream>
 
 TEST_CASE("MyString : at ") {
-	/*SECTION("Null string")
-	{
-					char* temp = nullptr;
-					MyString str{ temp };
-					REQUIRE(!str.at(0));
-	}*/
+
 	SECTION("Empty string") {
 		MyString str{};
 
@@ -201,7 +199,7 @@ TEST_CASE("MyString : operator += MyString &rhs ") {
 	SECTION("Empty += NotEmpty")
 	{
 		MyString str1{};
-		MyString str2{"abc"};
+		MyString str2{ "abc" };
 
 		str1 += str2;
 

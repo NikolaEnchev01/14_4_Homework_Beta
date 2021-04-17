@@ -32,7 +32,7 @@ public:
 
 private:
 	char* str;
-	size_t used{0};
-	size_t capacity{0};
+	size_t used{ 0 };
+	size_t capacity{ 0 };
 
 };

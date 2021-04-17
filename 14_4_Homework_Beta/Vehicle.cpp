@@ -4,23 +4,23 @@
 
 Vehicle::Vehicle(const char* registration, const char* description, size_t space)
 {
-    this->registration = registration;
-    this->description = description;
-    this->space = space;
+	this->registration = registration;
+	this->description = description;
+	this->space = space;
 }
 
-const char* Vehicle :: getRegistration() const
+const char* Vehicle::getRegistration() const
 {
-    return registration.c_str();
+	return registration.c_str();
 }
 
-const char* Vehicle :: getDescription() const
+const char* Vehicle::getDescription() const
 {
-    return description.c_str();
+	return description.c_str();
 }
 
-size_t Vehicle :: getSpace() const
+size_t Vehicle::getSpace() const
 {
-    return space;
+	return space;
 }
 

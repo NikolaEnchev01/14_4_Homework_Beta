@@ -1,4 +1,6 @@
 
+// to use the test coment out main_4.cpp
+
 #include "Garage.h"
 #include "catch.hpp"
 #include <iostream>

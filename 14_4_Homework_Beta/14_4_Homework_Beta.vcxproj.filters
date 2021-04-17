@@ -36,6 +36,9 @@
     <ClCompile Include="Garage_TESTS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main_4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">

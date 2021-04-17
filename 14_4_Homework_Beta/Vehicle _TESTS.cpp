@@ -1,4 +1,5 @@
 
+// to use the test coment out main_4.cpp
 
 #include "Vehicle.h"
 #include "catch.hpp"
@@ -11,5 +12,5 @@ TEST_CASE("Vehicle : constructor and get funcitons")
 	REQUIRE(strcmp(a.getRegistration(), "123") == 0);
 	REQUIRE(strcmp(a.getDescription(), "Big and fast") == 0);
 	REQUIRE(a.getSpace() == 42);
-	
+
 }
